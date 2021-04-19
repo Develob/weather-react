@@ -1,24 +1,21 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, memo } from 'react';
 import { useDispatch } from 'react-redux';
 import debounce from 'lodash.debounce';
 
 import { Container } from '../../core/styledApp';
 import { Label, InputStyled } from './styledInput';
-import { getWeather, setLoading, searchCity, getMoreInfo } from '../../redux/actions';
-import { useTypedSelector } from '../../redux/typeSelector';
+import { getWeather, setLoading, searchCity } from '../../redux/actions';
 
-export const Input: React.FC = () => {
+const Input: React.FC = () => {
     const dispatch = useDispatch();
-    const { weather } = useTypedSelector((state) => state.weather);
-    const { coord } = weather;
 
+    // eslint-disable-next-line
     const getData = useCallback(
         debounce((value) => {
             dispatch(getWeather(value));
-            dispatch(getMoreInfo(coord?.lat, coord?.lon));
             dispatch(setLoading());
         }, 1500),
-        [getMoreInfo, coord?.lat, coord?.lon],
+        [],
     );
 
     const handlerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,8 +30,10 @@ export const Input: React.FC = () => {
         <Container>
             <Label>
                 Введите название вашего города
-                <InputStyled type="text" onChange={handlerChange} />
+                <InputStyled type="text" onChange={handlerChange} minLength={3} />
             </Label>
         </Container>
     );
 };
+
+export const MemoInput = memo(Input);

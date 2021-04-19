@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ru';
 
@@ -19,7 +19,7 @@ import {
     WrapWeek,
 } from './styledForWeekBlock';
 
-export const ForWeekBlock: React.FC<ITemperatureWeek> = ({
+const ForWeekBlock: React.FC<ITemperatureWeek> = ({
     dt,
     sunrise,
     sunset,
@@ -108,3 +108,5 @@ export const ForWeekBlock: React.FC<ITemperatureWeek> = ({
         </WrapWeek>
     );
 };
+
+export const MemoForWeekBlock = memo(ForWeekBlock);

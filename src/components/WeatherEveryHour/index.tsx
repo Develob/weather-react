@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { Container } from '../../core/styledApp';
-import { EveryHourBlock } from '../EveryHourBlock';
+import { MemoEveryHourBlock } from '../EveryHourBlock';
 import { useTypedSelector } from '../../redux/typeSelector';
 import { FlexItems, WrapperBlock } from './styledWeatherEveryHour';
 
@@ -14,8 +14,8 @@ import './style.scss';
 
 SwiperCore.use([Navigation]);
 
-export const WeatherEveryHour: React.FC = () => {
-    const { weather_more }: any = useTypedSelector((state) => state.weather);
+const WeatherEveryHour: React.FC = () => {
+    const { weather_more } = useTypedSelector((state) => state.weather);
     const { hourly } = weather_more;
 
     return (
@@ -31,7 +31,7 @@ export const WeatherEveryHour: React.FC = () => {
                         slidesPerView={6}>
                         {hourly.map((obj: any, id: number) => (
                             <SwiperSlide key={id}>
-                                <EveryHourBlock {...obj} />
+                                <MemoEveryHourBlock {...obj} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
@@ -40,3 +40,5 @@ export const WeatherEveryHour: React.FC = () => {
         </Container>
     );
 };
+
+export const MemoWeatherEveryHour = memo(WeatherEveryHour);

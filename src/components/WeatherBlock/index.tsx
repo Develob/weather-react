@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import dayjs from 'dayjs';
 
 import { Column } from '../Header/styledHeader';
@@ -18,14 +18,11 @@ import {
     OptionSpan,
 } from './styledWeather';
 
-export const WeatherBlock: React.FC = () => {
+const WeatherBlock: React.FC = () => {
     const { weather } = useTypedSelector((state) => state.weather);
     const { name, dt, weather: weatherInfo, main, wind, clouds, sys }: IData = weather;
-
     const { temp, temp_max, temp_min, feels_like, humidity }: ITemperature = main;
-
     const { speed }: IWind = wind;
-
     const { icon, description }: IWeather = weatherInfo[0];
 
     const date = dayjs.unix(dt).format('HH:MM');
@@ -125,3 +122,5 @@ export const WeatherBlock: React.FC = () => {
         </Container>
     );
 };
+
+export const MemoWeatherBlock = memo(WeatherBlock);

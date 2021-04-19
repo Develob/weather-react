@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { logo } from '../../assets';
 import { LogoBlock, HeaderBlock, TitleApp, SubTitle, Column, LogoImg } from './styledHeader';
 
