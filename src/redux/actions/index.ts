@@ -11,7 +11,7 @@ const config = {
     },
 };
 
-const apiLink = 'http://api.openweathermap.org/data/2.5/';
+const apiLink = 'https://api.openweathermap.org/data/2.5/';
 const exclued = '&exclude=minutely,alerts,current';
 
 export const setLoading = () => {
