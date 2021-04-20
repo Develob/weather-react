@@ -1,17 +1,17 @@
-import React, { useCallback, memo } from 'react';
-import { useDispatch } from 'react-redux';
+import { FC, useCallback, memo } from 'react';
 import debounce from 'lodash.debounce';
+import { useDispatch } from 'react-redux';
 
 import { Container } from '../../core/styledApp';
 import { Label, InputStyled } from './styledInput';
 import { getWeather, setLoading, searchCity } from '../../redux/actions';
 
-const Input: React.FC = () => {
+const Input: FC = () => {
     const dispatch = useDispatch();
 
     // eslint-disable-next-line
     const getData = useCallback(
-        debounce((value) => {
+        debounce((value: string) => {
             dispatch(getWeather(value));
             dispatch(setLoading());
         }, 1500),

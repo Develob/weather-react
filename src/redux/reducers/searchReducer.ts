@@ -1,5 +1,5 @@
-import { ActionTypes, WeatherAction } from '../interface';
-import { IWeatherState } from '../../interfaces';
+import { ActionTypes, WeatherAction } from '../types';
+import { IWeatherState } from '../../types';
 
 const initialState: IWeatherState = {
     text: '',

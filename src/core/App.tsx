@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 import { MemoInput } from '../components/Input';
 import { Container, ErrorTitle } from './styledApp';
-import { Header } from '../components/Header';
+import { MemoHeader } from '../components/Header';
 import { MemoWeatherBlock } from '../components/WeatherBlock';
 import { MemoWeatherEveryHour } from '../components/WeatherEveryHour';
 
@@ -16,7 +16,7 @@ const App: React.FC = () => {
 
     return (
         <>
-            <Header />
+            <MemoHeader />
             <Container>
                 <MemoInput />
                 {error.length !== 0 ? (

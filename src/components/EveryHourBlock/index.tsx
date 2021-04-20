@@ -1,4 +1,6 @@
-import React, { memo } from 'react';
+import { memo, FC } from 'react';
+import dayjs from 'dayjs';
+import 'dayjs/locale/ru';
 
 import {
     WrapHourBlock,
@@ -11,11 +13,9 @@ import {
     HourDescr,
 } from './styledEveryHourBlock';
 
-import dayjs from 'dayjs';
-import 'dayjs/locale/ru';
-import { IHourBlock } from '../../interfaces';
+import { IHourBlock } from '../../types';
 
-const EveryHourBlock: React.FC<IHourBlock> = ({ dt, feels_like, temp, weather }) => {
+const EveryHourBlock: FC<IHourBlock> = ({ dt, feels_like, temp, weather }) => {
     const time = dayjs.unix(dt).format('HH:MM');
     const date = dayjs.unix(dt).locale('ru').format('DD MMMM');
 

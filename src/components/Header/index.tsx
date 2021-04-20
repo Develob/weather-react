@@ -1,12 +1,12 @@
-import React from 'react';
+import { FC, memo } from 'react';
 import { logo } from '../../assets';
 import { LogoBlock, HeaderBlock, TitleApp, SubTitle, Column, LogoImg } from './styledHeader';
 
-export const Header: React.FC = () => {
+const Header: FC = () => {
     return (
         <HeaderBlock>
             <LogoBlock>
-                <LogoImg src={logo} alt="logo-image" />
+                <LogoImg src={logo} alt="логотип" />
                 <Column>
                     <TitleApp>React-Weather-App</TitleApp>
                     <SubTitle>Приложение для просмотра прогноза погоды</SubTitle>
@@ -15,3 +15,5 @@ export const Header: React.FC = () => {
         </HeaderBlock>
     );
 };
+
+export const MemoHeader = memo(Header);

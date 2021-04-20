@@ -1,8 +1,9 @@
-import React, { memo } from 'react';
+import { FC, memo } from 'react';
 import { Container } from '../../core/styledApp';
 import { MemoForWeekBlock } from '../ForWeekBlock';
 import { useTypedSelector } from '../../redux/typeSelector';
 import { DisplayItems, WrapperContainer } from './styledWeatherForWeek';
+import { ITemperatureWeek } from '../../types';
 
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,8 +14,8 @@ import './style.scss';
 
 SwiperCore.use([Navigation]);
 
-const WeatherForWeek: React.FC = () => {
-    const { weather_more }: any = useTypedSelector((state) => state.weather);
+const WeatherForWeek: FC = () => {
+    const { weather_more } = useTypedSelector((state) => state.weather);
     const { daily } = weather_more;
 
     return (
@@ -29,7 +30,7 @@ const WeatherForWeek: React.FC = () => {
                         spaceBetween={80}
                         width={910}
                         slidesPerView={1}>
-                        {daily.map((obj: any, id: number) => (
+                        {daily.map((obj: ITemperatureWeek, id: number) => (
                             <SwiperSlide key={id}>
                                 <MemoForWeekBlock {...obj} />
                             </SwiperSlide>

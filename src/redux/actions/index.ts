@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
-import { ActionTypes, WeatherAction } from '../interface';
+import { ActionTypes, WeatherAction } from '../types';
 
 const key = process.env.REACT_APP_API_KEY;
 

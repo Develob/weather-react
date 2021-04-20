@@ -1,9 +1,9 @@
-import React, { memo } from 'react';
+import { memo, FC } from 'react';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ru';
 
 import { sunriseImg, sunsetImg, cloudImg } from '../../assets';
-import { ITemperatureWeek, ITempTypes, IWeather } from '../../interfaces';
+import { ITemperatureWeek } from '../../types';
 import {
     TemperatureBlock,
     TemperatureCol,
@@ -19,7 +19,7 @@ import {
     WrapWeek,
 } from './styledForWeekBlock';
 
-const ForWeekBlock: React.FC<ITemperatureWeek> = ({
+const ForWeekBlock: FC<ITemperatureWeek> = ({
     dt,
     sunrise,
     sunset,
@@ -32,9 +32,9 @@ const ForWeekBlock: React.FC<ITemperatureWeek> = ({
     const sunriseTime = dayjs.unix(sunrise).format('HH:mm');
     const sunsetTime = dayjs.unix(sunset).format('HH:mm');
 
-    const { day, night, eve, morn }: ITempTypes = temp;
+    const { day, night, eve, morn } = temp;
 
-    const { description, icon }: IWeather = weather[0];
+    const { description, icon } = weather[0];
 
     const fixedNumber = (num: number) => {
         return Number(num.toFixed());
