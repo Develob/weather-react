@@ -18,7 +18,7 @@ const Input: FC = () => {
         [],
     );
 
-    const handlerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         let target = e.target.value.trim();
         if (target.length >= 3) {
             getData(target);
@@ -30,7 +30,7 @@ const Input: FC = () => {
         <Container>
             <Label>
                 Введите название вашего города
-                <InputStyled type="text" onChange={handlerChange} minLength={3} />
+                <InputStyled type="text" onChange={onChangeHandler} minLength={3} />
             </Label>
         </Container>
     );
