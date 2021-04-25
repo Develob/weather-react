@@ -1,4 +1,4 @@
-import { IData } from './IMainWeatherBlock';
+// import { IData } from './IMainWeatherBlock';
 
 export interface IWeatherState {
     text: string;

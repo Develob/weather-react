@@ -13,7 +13,7 @@ interface SearchCityAction {
 
 interface FetchWeatherAction {
     type: ActionTypes.FETCH_WEATHER;
-    payload: [];
+    payload: {};
 }
 
 interface FetchMoreInfoAction {

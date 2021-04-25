@@ -13,14 +13,13 @@ import {
     HourDescr,
 } from './styledEveryHourBlock';
 
+import { fixedNumber } from '../utils/fixedNum';
 import { IHourBlock } from '../../models/IWeatherForHour';
+// const camelCase = require('camelcase');
 
 const EveryHourBlock: FC<IHourBlock> = ({ dt, feels_like, temp, weather }) => {
     const time = dayjs.unix(dt).format('HH:MM');
     const date = dayjs.unix(dt).locale('ru').format('DD MMMM');
-
-    let feelsTemp = Number(feels_like.toFixed());
-    let temperature = Number(temp.toFixed());
 
     const { icon, description } = weather[0];
 
@@ -30,8 +29,10 @@ const EveryHourBlock: FC<IHourBlock> = ({ dt, feels_like, temp, weather }) => {
             <HourSubtitle>{date}</HourSubtitle>
             <HourImg src={`http://openweathermap.org/img/wn/${icon}@2x.png`} />
             <HourFlex>
-                <HourTemp>{temperature > 0 ? `+${temperature}` : temperature}°</HourTemp>
-                <HourFeels>{feelsTemp > 0 ? `+${feelsTemp}` : feelsTemp}°</HourFeels>
+                <HourTemp>
+                    {feels_like > 0 ? `+${fixedNumber(feels_like)}` : fixedNumber(feels_like)}°
+                </HourTemp>
+                <HourFeels>{temp > 0 ? `+${fixedNumber(temp)}` : fixedNumber(temp)}°</HourFeels>
             </HourFlex>
             <HourDescr>{description}</HourDescr>
         </WrapHourBlock>

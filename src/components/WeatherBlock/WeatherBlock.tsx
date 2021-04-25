@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import dayjs from 'dayjs';
 
+import { fixedNumber } from '../utils/fixedNum';
 import { Column } from '../Header/styledHeader';
 import { Container } from '../../core/styledApp';
 import { useTypedSelector } from '../../redux/typeSelector';
-import { IData } from '../../models/IMainWeatherBlock';
 import { plusImg, minusImg, windImg, humidityImg, pressureImg, cloudImg } from '../../assets';
 import {
     AboutWeather,
@@ -28,10 +28,6 @@ const WeatherBlock: React.FC = () => {
     const { icon, description } = weatherArr[0];
 
     const date = dayjs.unix(dt).format('HH:MM');
-
-    const fixedNumber = (num: number) => {
-        return Number(num.toFixed());
-    };
 
     const percentOfClouds = clouds.all >= 0 && clouds.all <= 10;
 

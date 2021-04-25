@@ -19,6 +19,7 @@
     "@types/redux-thunk": "^2.1.0",
     "@types/swiper": "^5.4.2",
     "axios": "^0.21.1",
+    "camelcase": "^6.2.0",
     "dayjs": "^1.10.4",
     "lodash.debounce": "^4.0.8",
     "node-sass": "^5.0.0",
