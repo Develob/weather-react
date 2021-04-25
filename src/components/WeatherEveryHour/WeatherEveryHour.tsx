@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 
 import { Container } from '../../core/styledApp';
-import { MemoEveryHourBlock } from '../EveryHourBlock';
+import { MemoEveryHourBlock } from '../EveryHourBlock/EveryHourBlock';
 import { useTypedSelector } from '../../redux/typeSelector';
 import { FlexItems, WrapperBlock } from './styledWeatherEveryHour';
 
@@ -11,13 +11,13 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 
 import './style.scss';
-import { IHourBlock } from '../../types';
+import { IHourBlock } from '../../models/IWeatherForHour';
 
 SwiperCore.use([Navigation]);
 
 const WeatherEveryHour: FC = () => {
-    const { weather_more } = useTypedSelector((state) => state.weather);
-    const { hourly } = weather_more;
+    const { weatherMore } = useTypedSelector((state) => state.weather);
+    const { hourly } = weatherMore;
 
     return (
         <Container>

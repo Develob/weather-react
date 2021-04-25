@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/ru';
 
 import { sunriseImg, sunsetImg, cloudImg } from '../../assets';
-import { ITemperatureWeek } from '../../types';
+import { ITemperatureWeek } from '../../models/IWeatherForWeek';
 import {
     TemperatureBlock,
     TemperatureCol,

@@ -1,11 +1,11 @@
 import { ActionTypes, WeatherAction } from '../types';
-import { IWeatherState } from '../../types';
+import { IWeatherState } from '../../models/IState';
 
 const initialState: IWeatherState = {
     text: '',
-    weather: [],
+    weatherInfo: {},
     loading: false,
-    weather_more: [],
+    weatherMore: [],
     error: [],
 };
 
@@ -14,9 +14,9 @@ export const fetchWeather = (state = initialState, action: WeatherAction): IWeat
         case ActionTypes.SEARCH_CITY:
             return { ...state, text: action.payload, loading: false };
         case ActionTypes.FETCH_WEATHER:
-            return { ...state, weather: action.payload, loading: false };
+            return { ...state, weatherInfo: action.payload, loading: false };
         case ActionTypes.FETCH_MORE_INFO:
-            return { ...state, weather_more: action.payload, loading: false };
+            return { ...state, weatherMore: action.payload, loading: false };
         case ActionTypes.FETCH_ERROR:
             return { ...state, error: action.payload, loading: true };
         case ActionTypes.LOADING:

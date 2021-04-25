@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import { Column } from '../Header/styledHeader';
 import { Container } from '../../core/styledApp';
 import { useTypedSelector } from '../../redux/typeSelector';
-import { IData } from '../../types';
+import { IData } from '../../models/IMainWeatherBlock';
 import { plusImg, minusImg, windImg, humidityImg, pressureImg, cloudImg } from '../../assets';
 import {
     AboutWeather,
@@ -19,11 +19,13 @@ import {
 } from './styledWeather';
 
 const WeatherBlock: React.FC = () => {
-    const { weather } = useTypedSelector((state) => state.weather);
-    const { name, dt, weather: weatherInfo, main, wind, clouds, sys }: IData = weather;
+    const { weatherInfo } = useTypedSelector((state) => state.weather);
+
+    const { name, dt, weather: weatherArr, main, wind, clouds, sys } = weatherInfo;
+
     const { temp, temp_max, temp_min, feels_like, humidity } = main;
     const { speed } = wind;
-    const { icon, description } = weatherInfo[0];
+    const { icon, description } = weatherArr[0];
 
     const date = dayjs.unix(dt).format('HH:MM');
 

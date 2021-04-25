@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { fetchWeather } from './searchReducer';
+import { fetchWeather } from './weatherReducer';
 
 export const rootReducer = combineReducers({
     weather: fetchWeather,

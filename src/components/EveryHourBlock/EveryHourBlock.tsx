@@ -13,7 +13,7 @@ import {
     HourDescr,
 } from './styledEveryHourBlock';
 
-import { IHourBlock } from '../../types';
+import { IHourBlock } from '../../models/IWeatherForHour';
 
 const EveryHourBlock: FC<IHourBlock> = ({ dt, feels_like, temp, weather }) => {
     const time = dayjs.unix(dt).format('HH:MM');

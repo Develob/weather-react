@@ -1,18 +1,18 @@
 import React, { memo } from 'react';
 
-import { MemoInput } from '../components/Input';
+import { MemoInput } from '../components/Input/Input';
 import { Container, ErrorTitle } from './styledApp';
-import { MemoHeader } from '../components/Header';
-import { MemoWeatherBlock } from '../components/WeatherBlock';
-import { MemoWeatherEveryHour } from '../components/WeatherEveryHour';
+import { MemoHeader } from '../components/Header/Header';
+import { MemoWeatherBlock } from '../components/WeatherBlock/WeatherBlock';
+import { MemoWeatherEveryHour } from '../components/WeatherEveryHour/WeatherEveryHour';
 
 import { useTypedSelector } from '../redux/typeSelector';
 // @ts-ignore
 import { SemipolarLoading as Loader } from 'react-loadingg';
-import { MemoWeatherForWeek } from '../components/WeatherForWeek';
+import { MemoWeatherForWeek } from '../components/WeatherForWeek/WeatherForWeek';
 
 const App: React.FC = () => {
-    const { weather, weather_more, error } = useTypedSelector((state) => state.weather);
+    const { weatherInfo, weatherMore, error } = useTypedSelector((state) => state.weather);
 
     return (
         <>
@@ -23,9 +23,9 @@ const App: React.FC = () => {
                     <ErrorTitle>По вашему запросу ничего не найдено...</ErrorTitle>
                 ) : (
                     <>
-                        {weather.length === 0 ? <Loader /> : <MemoWeatherBlock />}
-                        {weather_more.length === 0 ? <Loader /> : <MemoWeatherEveryHour />}
-                        {weather_more.length === 0 ? <Loader /> : <MemoWeatherForWeek />}
+                        {Object.keys(weatherInfo).length === 0 ? <Loader /> : <MemoWeatherBlock />}
+                        {weatherMore.length === 0 ? <Loader /> : <MemoWeatherEveryHour />}
+                        {weatherMore.length === 0 ? <Loader /> : <MemoWeatherForWeek />}
                     </>
                 )}
             </Container>
