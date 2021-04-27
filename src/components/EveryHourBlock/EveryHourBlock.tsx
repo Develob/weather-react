@@ -13,7 +13,7 @@ import {
     HourDescr,
 } from './styledEveryHourBlock';
 
-import { fixedNumber } from '../utils/fixedNum';
+import { fixedNumber } from '../../utils/fixedNum';
 import { IHourBlock } from '../../models/IWeatherForHour';
 // const camelCase = require('camelcase');
 

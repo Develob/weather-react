@@ -2,7 +2,7 @@ import { memo, FC } from 'react';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ru';
 
-import { fixedNumber } from '../utils/fixedNum';
+import { fixedNumber } from '../../utils/fixedNum';
 import { sunriseImg, sunsetImg, cloudImg } from '../../assets';
 import { ITemperatureWeek } from '../../models/IWeatherForWeek';
 import {

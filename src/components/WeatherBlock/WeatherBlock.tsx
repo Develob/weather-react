@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import dayjs from 'dayjs';
 
-import { fixedNumber } from '../utils/fixedNum';
+import { fixedNumber } from '../../utils/fixedNum';
 import { Column } from '../Header/styledHeader';
 import { Container } from '../../core/styledApp';
 import { useTypedSelector } from '../../redux/typeSelector';
