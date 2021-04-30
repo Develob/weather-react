@@ -1,10 +1,11 @@
-import React, { memo } from 'react';
+import { memo, FC } from 'react';
 import dayjs from 'dayjs';
 
 import { fixedNumber } from '../../utils/fixedNum';
 import { Column } from '../Header/styledHeader';
 import { Container } from '../../core/styledApp';
-import { useTypedSelector } from '../../redux/typeSelector';
+import { IData } from '../../models/IMainWeatherBlock';
+
 import { plusImg, minusImg, windImg, humidityImg, pressureImg, cloudImg } from '../../assets';
 import {
     AboutWeather,
@@ -18,14 +19,10 @@ import {
     OptionSpan,
 } from './styledWeather';
 
-const WeatherBlock: React.FC = () => {
-    const { weatherInfo } = useTypedSelector((state) => state.weather);
-
-    const { name, dt, weather: weatherArr, main, wind, clouds, sys } = weatherInfo;
-
+const WeatherBlock: FC<IData> = ({ main, wind, weather, dt, clouds, sys, name }) => {
     const { temp, temp_max, temp_min, feels_like, humidity } = main;
     const { speed } = wind;
-    const { icon, description } = weatherArr[0];
+    const { icon, description } = weather[0];
 
     const date = dayjs.unix(dt).format('HH:MM');
 

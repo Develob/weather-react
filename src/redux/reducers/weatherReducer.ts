@@ -3,9 +3,9 @@ import { IWeatherState } from '../../models/IState';
 
 const initialState: IWeatherState = {
     text: '',
-    weatherInfo: {},
+    weatherInfo: null,
     loading: false,
-    weatherMore: [],
+    weatherMore: null,
     error: [],
 };
 

@@ -13,12 +13,12 @@ interface SearchCityAction {
 
 interface FetchWeatherAction {
     type: ActionTypes.FETCH_WEATHER;
-    payload: {};
+    payload: null;
 }
 
 interface FetchMoreInfoAction {
     type: ActionTypes.FETCH_MORE_INFO;
-    payload: [];
+    payload: null;
 }
 
 interface LoadingAction {

@@ -1,16 +1,17 @@
 import { IData } from './IMainWeatherBlock';
-// IData | null
+import { IHourBlock } from './IWeatherForHour';
+import { ITemperatureWeek } from './IWeatherForWeek';
 export interface IWeatherState {
     text: string;
-    weatherInfo: any;
+    weatherInfo: IData | null;
     loading: boolean;
-    weatherMore: any;
+    weatherMore: IWeatherMore | null;
     error: [];
 }
 
 export interface IWeatherMore {
     lat: number;
     lon: number;
-    hourly: any;
-    daily: any;
+    hourly: IHourBlock[];
+    daily: ITemperatureWeek[];
 }

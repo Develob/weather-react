@@ -16,3 +16,7 @@ export interface ITempOneDay {
     eve: number;
     morn: number;
 }
+
+export interface IDaily {
+    daily: ITemperatureWeek[];
+}

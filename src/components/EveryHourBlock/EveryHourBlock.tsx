@@ -15,7 +15,6 @@ import {
 
 import { fixedNumber } from '../../utils/fixedNum';
 import { IHourBlock } from '../../models/IWeatherForHour';
-// const camelCase = require('camelcase');
 
 const EveryHourBlock: FC<IHourBlock> = ({ dt, feels_like, temp, weather }) => {
     const time = dayjs.unix(dt).format('HH:MM');

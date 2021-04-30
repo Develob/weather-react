@@ -5,15 +5,16 @@ import { Container, ErrorTitle } from './styledApp';
 import { MemoHeader } from '../components/Header/Header';
 import { MemoWeatherBlock } from '../components/WeatherBlock/WeatherBlock';
 import { MemoWeatherEveryHour } from '../components/WeatherEveryHour/WeatherEveryHour';
-
-import { useTypedSelector } from '../redux/typeSelector';
 // @ts-ignore
 import { SemipolarLoading as Loader } from 'react-loadingg';
 import { MemoWeatherForWeek } from '../components/WeatherForWeek/WeatherForWeek';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/reducers';
 
 const App: React.FC = () => {
-    const { weatherInfo, weatherMore, error } = useTypedSelector((state) => state.weather);
-
+    const error = useSelector((state: RootState) => state.weather.error);
+    const weatherData = useSelector((state: RootState) => state.weather.weatherInfo);
+    const weatherMoreData = useSelector((state: RootState) => state.weather.weatherMore);
     return (
         <>
             <MemoHeader />
@@ -23,9 +24,13 @@ const App: React.FC = () => {
                     <ErrorTitle>По вашему запросу ничего не найдено...</ErrorTitle>
                 ) : (
                     <>
-                        {Object.keys(weatherInfo).length === 0 ? <Loader /> : <MemoWeatherBlock />}
-                        {weatherMore.length === 0 ? <Loader /> : <MemoWeatherEveryHour />}
-                        {weatherMore.length === 0 ? <Loader /> : <MemoWeatherForWeek />}
+                        {weatherData ? <MemoWeatherBlock {...weatherData} /> : <Loader />}
+                        {weatherMoreData ? (
+                            <MemoWeatherEveryHour {...weatherMoreData} />
+                        ) : (
+                            <Loader />
+                        )}
+                        {weatherMoreData ? <MemoWeatherForWeek {...weatherMoreData} /> : <Loader />}
                     </>
                 )}
             </Container>
