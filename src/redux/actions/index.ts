@@ -14,10 +14,6 @@ const config = {
 const apiLink = 'https://api.openweathermap.org/data/2.5/';
 const exclued = '&exclude=minutely,alerts,current';
 
-export const setLoading = () => {
-    return { type: ActionTypes.LOADING };
-};
-
 export const searchCity = (text: string) => (dispatch: Dispatch<WeatherAction>) => {
     dispatch({ type: ActionTypes.SEARCH_CITY, payload: text });
 };
@@ -40,4 +36,8 @@ export const getWeather = (text: string) => {
             dispatch({ type: ActionTypes.FETCH_ERROR, payload: e });
         }
     };
+};
+
+export const setLoading = () => {
+    return { type: ActionTypes.LOADING };
 };

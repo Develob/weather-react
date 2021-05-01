@@ -12,9 +12,8 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../redux/reducers';
 
 const App: React.FC = () => {
-    const error = useSelector((state: RootState) => state.weather.error);
-    const weatherData = useSelector((state: RootState) => state.weather.weatherInfo);
-    const weatherMoreData = useSelector((state: RootState) => state.weather.weatherMore);
+    const { error, weatherMore, weatherInfo } = useSelector((state: RootState) => state.weather);
+
     return (
         <>
             <MemoHeader />
@@ -24,13 +23,9 @@ const App: React.FC = () => {
                     <ErrorTitle>По вашему запросу ничего не найдено...</ErrorTitle>
                 ) : (
                     <>
-                        {weatherData ? <MemoWeatherBlock {...weatherData} /> : <Loader />}
-                        {weatherMoreData ? (
-                            <MemoWeatherEveryHour {...weatherMoreData} />
-                        ) : (
-                            <Loader />
-                        )}
-                        {weatherMoreData ? <MemoWeatherForWeek {...weatherMoreData} /> : <Loader />}
+                        {weatherInfo ? <MemoWeatherBlock {...weatherInfo} /> : <Loader />}
+                        {weatherMore ? <MemoWeatherEveryHour {...weatherMore} /> : <Loader />}
+                        {weatherMore ? <MemoWeatherForWeek {...weatherMore} /> : <Loader />}
                     </>
                 )}
             </Container>

@@ -1,11 +1,10 @@
-import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
 import { MemoApp } from './core/App';
 import store from './redux/store';
 
-import './index.css';
+import './index.scss';
 
 const app = (
     <Provider store={store}>
