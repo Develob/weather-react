@@ -1,15 +1,14 @@
 import React, { memo } from 'react';
+import { useSelector } from 'react-redux';
 
 import { MemoInput } from '../components/Input/Input';
-import { Container, ErrorTitle } from './styledApp';
+import { Container, ErrorTitle, Spiner } from './styledApp';
 import { MemoHeader } from '../components/Header/Header';
 import { MemoWeatherBlock } from '../components/WeatherBlock/WeatherBlock';
 import { MemoWeatherEveryHour } from '../components/WeatherEveryHour/WeatherEveryHour';
-// @ts-ignore
-import { SemipolarLoading as Loader } from 'react-loadingg';
 import { MemoWeatherForWeek } from '../components/WeatherForWeek/WeatherForWeek';
-import { useSelector } from 'react-redux';
 import { RootState } from '../redux/reducers';
+import PacmanLoader from 'react-spinners/PacmanLoader';
 
 const App: React.FC = () => {
     const { error, weatherMore, weatherInfo } = useSelector((state: RootState) => state.weather);
@@ -23,9 +22,13 @@ const App: React.FC = () => {
                     <ErrorTitle>По вашему запросу ничего не найдено...</ErrorTitle>
                 ) : (
                     <>
-                        {weatherInfo ? <MemoWeatherBlock {...weatherInfo} /> : <Loader />}
-                        {weatherMore ? <MemoWeatherEveryHour {...weatherMore} /> : <Loader />}
-                        {weatherMore ? <MemoWeatherForWeek {...weatherMore} /> : <Loader />}
+                        {weatherInfo ? (
+                            <MemoWeatherBlock {...weatherInfo} />
+                        ) : (
+                            <PacmanLoader color={'#42aaff'} css={Spiner} />
+                        )}
+                        {weatherMore ? <MemoWeatherEveryHour {...weatherMore} /> : null}
+                        {weatherMore ? <MemoWeatherForWeek {...weatherMore} /> : null}
                     </>
                 )}
             </Container>

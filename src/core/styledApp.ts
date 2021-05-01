@@ -12,3 +12,12 @@ export const ErrorTitle = styled.h1`
     margin: 50px 0;
     font-size: 19px;
 `;
+
+export const Spiner = `
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
