@@ -2,6 +2,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Gabriela', serif;
+}
+
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 

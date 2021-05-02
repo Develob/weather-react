@@ -5,6 +5,10 @@ export const Label = styled.label`
     flex-direction: column;
     font-size: 24px;
     font-weight: 400;
+
+    @media (max-width: 520px) {
+        font-size: 17px;
+    }
 `;
 
 export const InputStyled = styled.input`

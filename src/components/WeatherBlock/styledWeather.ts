@@ -21,11 +21,24 @@ export const WeatherTitle = styled.h2`
         font-size: 30px;
         border-bottom: 1px solid #42aaff;
     }
+
+    @media (max-width: 520px) {
+        font-size: 18px;
+
+        & b {
+            font-size: 21px;
+        }
+    }
 `;
 
 export const WeatherSubtitle = styled.h3`
     font-size: 24px;
     margin-top: 30px;
+
+    @media (max-width: 520px) {
+        font-size: 18px;
+        margin-top: 16px;
+    }
 `;
 
 export const AboutWeather = styled.div`
@@ -48,6 +61,31 @@ export const AboutWeather = styled.div`
         background-color: #d0c3c3;
         border-radius: 42px;
         margin: 0 20px;
+    }
+
+    @media (max-width: 620px) {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 12px 0;
+
+        & h4 {
+            font-size: 43px;
+            margin: 8px auto;
+        }
+
+        .icon-weather {
+            margin: 0 auto;
+        }
+    }
+
+    @media (max-width: 520px) {
+        & h4 {
+            font-size: 33px;
+        }
+
+        & .weather-info {
+            font-size: 26px;
+        }
     }
 `;
 
@@ -75,6 +113,7 @@ export const OtherInfo = styled.div`
 export const OptionInfo = styled.div`
     display: flex;
     margin-bottom: 8px;
+    align-items: center;
 
     &:last-child {
         margin-bottom: 0;
@@ -83,6 +122,10 @@ export const OptionInfo = styled.div`
 
 export const OptionSpan = styled.span`
     font-size: 19px;
+
+    @media (max-width: 520px) {
+        font-size: 15px;
+    }
 `;
 
 export const ImgInfo = styled.img`

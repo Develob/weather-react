@@ -16,6 +16,12 @@ export const WrapperBlock = styled.div`
         font-size: 24px;
         line-height: 37px;
     }
+
+    @media (max-width: 520px) {
+        & h3 {
+            font-size: 18px;
+        }
+    }
 `;
 
 export const FlexItems = styled.div`

@@ -11,6 +11,10 @@ export const ErrorTitle = styled.h1`
     text-align: center;
     margin: 50px 0;
     font-size: 19px;
+
+    @media (max-width: 560px) {
+        font-size: 14px;
+    }
 `;
 
 export const Spiner = `

@@ -21,7 +21,25 @@ const WeatherEveryHour: FC<IHourly> = ({ hourly }) => {
             <WrapperBlock>
                 <h3>Почасовой прогноз на ближайшие 2 суток</h3>
                 <FlexItems>
-                    <Swiper className="swiper-1" navigation spaceBetween={28} slidesPerView={6}>
+                    <Swiper
+                        className="swiper-1"
+                        navigation
+                        spaceBetween={28}
+                        slidesPerView={6}
+                        breakpoints={{
+                            900: {
+                                slidesPerView: 6,
+                            },
+                            700: {
+                                slidesPerView: 4,
+                            },
+                            550: {
+                                slidesPerView: 3,
+                            },
+                            320: {
+                                slidesPerView: 1,
+                            },
+                        }}>
                         {hourly.map((obj: IHourBlock, id: number) => (
                             <SwiperSlide key={id}>
                                 <MemoEveryHourBlock {...obj} />

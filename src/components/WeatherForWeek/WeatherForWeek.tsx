@@ -17,12 +17,7 @@ const WeatherForWeek: FC<IDaily> = ({ daily }) => {
             <WrapperContainer>
                 <h3>Прогноз на ближайшую неделю</h3>
                 <DisplayItems>
-                    <Swiper
-                        className="swiper-2"
-                        navigation
-                        spaceBetween={80}
-                        width={910}
-                        slidesPerView={1}>
+                    <Swiper className="swiper-2" navigation spaceBetween={80} slidesPerView={1}>
                         {daily.map((obj: ITemperatureWeek, id: number) => (
                             <SwiperSlide key={id}>
                                 <MemoForWeekBlock {...obj} />

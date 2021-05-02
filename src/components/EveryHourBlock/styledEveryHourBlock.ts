@@ -7,8 +7,8 @@ export const WrapHourBlock = styled.div`
     background-color: #f9f5f5;
     box-shadow: 0px 3px 8px 0px rgba(50 50 50 / 48%);
     border-radius: 12px;
-    height: 140px;
-    width: 100px;
+    min-height: 145px;
+    min-width: 120px;
     justify-content: space-between;
 `;
 
@@ -19,8 +19,8 @@ export const HourTitle = styled.h4`
 `;
 
 export const HourSubtitle = styled.span`
-    font-size: 16px;
-    line-height: 14px;
+    font-size: 14px;
+    line-height: 13px;
 `;
 
 export const HourImg = styled.img`
@@ -45,5 +45,5 @@ export const HourFeels = styled.span`
 `;
 
 export const HourDescr = styled.span`
-    font-size: 13px;
+    font-size: 11px;
 `;

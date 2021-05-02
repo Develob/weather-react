@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 
 import { MemoInput } from '../components/Input/Input';
-import { Container, ErrorTitle, Spiner } from './styledApp';
+import { ErrorTitle, Spiner } from './styledApp';
 import { MemoHeader } from '../components/Header/Header';
 import { MemoWeatherBlock } from '../components/WeatherBlock/WeatherBlock';
 import { MemoWeatherEveryHour } from '../components/WeatherEveryHour/WeatherEveryHour';
@@ -16,22 +16,20 @@ const App: React.FC = () => {
     return (
         <>
             <MemoHeader />
-            <Container>
-                <MemoInput />
-                {error.length !== 0 ? (
-                    <ErrorTitle>По вашему запросу ничего не найдено...</ErrorTitle>
-                ) : (
-                    <>
-                        {weatherInfo ? (
-                            <MemoWeatherBlock {...weatherInfo} />
-                        ) : (
-                            <PacmanLoader color={'#42aaff'} css={Spiner} />
-                        )}
-                        {weatherMore ? <MemoWeatherEveryHour {...weatherMore} /> : null}
-                        {weatherMore ? <MemoWeatherForWeek {...weatherMore} /> : null}
-                    </>
-                )}
-            </Container>
+            <MemoInput />
+            {error.length !== 0 ? (
+                <ErrorTitle>По вашему запросу ничего не найдено...</ErrorTitle>
+            ) : (
+                <>
+                    {weatherInfo ? (
+                        <MemoWeatherBlock {...weatherInfo} />
+                    ) : (
+                        <PacmanLoader color={'#42aaff'} css={Spiner} />
+                    )}
+                    {weatherMore ? <MemoWeatherEveryHour {...weatherMore} /> : null}
+                    {weatherMore ? <MemoWeatherForWeek {...weatherMore} /> : null}
+                </>
+            )}
         </>
     );
 };
